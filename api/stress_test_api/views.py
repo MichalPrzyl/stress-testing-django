@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.generics import GenericAPIView, ListAPIView
+from stress_test_api.seriarlizers import PersonSerializer
+from stress_test_api.models import Person
 
-# Create your views here.
+
+class PersonGenericApi(ListAPIView):
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
